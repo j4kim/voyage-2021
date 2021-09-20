@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
+      <router-link :to="`/${+$route.params.day - 1}`">←</router-link>
+      {{ $route.params.day }} août 2021
+      <router-link :to="`/${+$route.params.day + 1}`">→</router-link>
     </div>
     <router-view/>
   </div>
