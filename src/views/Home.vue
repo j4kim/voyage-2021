@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    {{ $route.params.day }} août 2021
+    <header>
+      {{ $route.params.day }} août 2021
+    </header>
+    <main>
+      <img :src="`/assets/${$route.params.day}.jpg`">
+    </main>
   </div>
 </template>
 
