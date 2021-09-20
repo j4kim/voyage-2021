@@ -14,3 +14,10 @@ export default {
   name: 'Home'
 }
 </script>
+
+<style lang="scss" scoped>
+img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+</style>
