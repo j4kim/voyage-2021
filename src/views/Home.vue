@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <main>
-      <img :src="`/assets/${$route.params.day}.jpg`">
+      <a :href="`/assets/${$route.params.day}.jpg`" target="_blank" rel="noopener noreferrer">
+        <img :src="`/assets/${$route.params.day}.jpg`">
+      </a>
     </main>
   </div>
 </template>
