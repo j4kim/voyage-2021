@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <header>
+      Le petit voyage de Mimi & Jojo
+    </header>
     <div id="nav">
       <router-link :to="`/${+$route.params.day - 1}`">←</router-link>
       {{ $route.params.day }} août 2021
@@ -22,11 +25,15 @@ body {
   color: #2c3e50;
 }
 
+header {
+  margin: 20px 0 10px;
+  font-size: .8em;
+}
+
 #nav {
-  padding: 30px;
   max-width: 80vw;
   width: 300px;
-  margin: auto;
+  margin: 0 auto 20px;
   display: flex;
   justify-content: space-between;
 
