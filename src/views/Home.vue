@@ -7,8 +7,25 @@
 </template>
 
 <script>
+const min = 9
+const max = 28
+
+function navigationGuard (to, from, next) {
+  let day = to.params.day
+  if (isNaN(day) || day > max) {
+    next(`/${min}`)
+  } else if (day < min) {
+    next(`/${max}`)
+  } else {
+    next()
+  }
+}
+
 export default {
-  name: 'Home'
+  name: 'Home',
+
+  beforeRouteEnter: navigationGuard,
+  beforeRouteUpdate: navigationGuard
 }
 </script>
 
