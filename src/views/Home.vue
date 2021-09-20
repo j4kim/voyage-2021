@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <main>
-      <a :href="`/assets/${$route.params.day}.jpg`" target="_blank" rel="noopener noreferrer">
-        <img :src="`/assets/${$route.params.day}.jpg`">
+      <a :href="url" target="_blank" rel="noopener noreferrer">
+        <img :src="url">
       </a>
     </main>
   </div>
@@ -27,7 +27,14 @@ export default {
   name: 'Home',
 
   beforeRouteEnter: navigationGuard,
-  beforeRouteUpdate: navigationGuard
+  beforeRouteUpdate: navigationGuard,
+
+  computed: {
+    url () {
+      let day = this.$route.params.day
+      return `${process.env.BASE_URL}assets/${day}.jpg`
+    }
+  }
 }
 </script>
 
