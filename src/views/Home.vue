@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Hello
+    {{ $route.params.day }} août 2021
   </div>
 </template>
 
