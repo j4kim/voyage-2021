@@ -18,10 +18,10 @@ new Vue({
       return this.content.split('---')
     },
     posts() {
-      return this.rawPosts.map(md => {
-        let id = md.match(/(?!<!-- *id: *)\d+(?= *-->)/)[0]
-        return { id, html: marked(md) }
-      })
+      return this.rawPosts.map(md => ({
+        id: md.match(/(?!<!-- *id: *)\d+(?= *-->)/)[0],
+        html: marked(md)
+      }))
     }
   },
 
