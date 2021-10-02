@@ -2,8 +2,9 @@
   <div class="home">
     <main>
       <a :href="url" target="_blank" rel="noopener noreferrer">
-        <img :src="url">
+        <img :src="url" @load="imageLoaded" v-show="ready">
       </a>
+      <small v-if="!ready">Chargement</small>
     </main>
   </div>
 </template>
@@ -26,6 +27,10 @@ function navigationGuard (to, from, next) {
 export default {
   name: 'Home',
 
+  data: () => ({
+    ready: false
+  }),
+
   beforeRouteEnter: navigationGuard,
   beforeRouteUpdate: navigationGuard,
 
@@ -33,6 +38,18 @@ export default {
     url () {
       let day = this.$route.params.day
       return `${process.env.BASE_URL}assets/${day}.jpg`
+    }
+  },
+
+  watch: {
+    "url" () {
+      this.ready = false
+    }
+  },
+  
+  methods: {
+    imageLoaded () {
+      this.ready = true
     }
   }
 }
