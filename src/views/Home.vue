@@ -10,7 +10,7 @@
 
 <script>
 const min = 9
-const max = 28
+const max = 29
 
 function navigationGuard (to, from, next) {
   let day = to.params.day
